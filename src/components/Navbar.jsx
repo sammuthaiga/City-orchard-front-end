@@ -41,11 +41,11 @@ const Navbar = () => {
 
 
             <ul className={!nav ? 'hidden' : 'absolute bg-green-500 w-full px-8'}>
-                <Link> className='border-b-2 border-black-300 w-full font-bold'Home</Link>
-                <Link> className='border-b-2 border-black-300 w-full font-bold'Sell</Link>
-                <Link> className='border-b-2 border-black-300 w-full font-bold'Delivery</Link>
-                <Link> className='border-b-2 border-black-300 w-full font-bold'About</Link>
-                <Link> className='border-b-2 border-black-300 w-full font-bold'Contacts</Link>
+            <Link to="/" className='border-b-2 border-black-300 w-full font-bold'>Home</Link>
+            <Link to="/sell" className='border-b-2 border-black-300 w-full font-bold'>Buy</Link>
+               <Link to="/buy"className='border-b-2 border-black-300 w-full font-bold'>Sell</Link>
+               <Link to="/about"className='border-b-2 border-black-300 w-full font-bold'>About</Link>
+               <Link to="/contcts"className='border-b-2 border-black-300 w-full font-bold'>Contacts</Link>
                 <div className='flex flex-col my-4'>
                 <button className='group text-white w-fit px-6 py-3 my-2 mr-4 flex items-center rounded-md 
                 cursor-pointer hover:bg-transparent hover:text-green-700 '>Sign-In</button>
