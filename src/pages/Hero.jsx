@@ -1,5 +1,10 @@
 import React from 'react'
+import {  Routes, Route} from "react-router-dom";
+import {Link} from "react-router-dom"
+
 import bgImg from '../assets/landing.jpg'
+import FruitsList from '../components/FruitsList';
+import CreateFruit from '../components/CreateFruit';
 const Hero = () => {
   return (
     <div className='w-full h-screen flex flex-col justify-between'> 
@@ -14,13 +19,24 @@ const Hero = () => {
             <img className='w-full h-full rounded-xl' src={bgImg} alt='/' />
         </div>
         <div className='grid md:grid-cols-2 max-w-[1240px] m-autoflex flex-col justify-center md:items-start w-full '>
-        <button className='bg-gradient-to-r from-green-300 to-blue-200 shadow-xl w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'>Buy</button> 
+        <Link to="/sell">
+           <button className='bg-gradient-to-r from-green-300 to-blue-200 shadow-xl w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'>Buy</button> 
+           </Link>
+           <Link to="/buy">
             <button className='bg-gradient-to-r from-green-300 to-blue-200 shadow-xl w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'>Sell</button> 
+            </Link>
         </div>
 
     </div>
 
-
+    <div>
+    
+        <Routes>
+          <Route path="/sell" element={< FruitsList/>} />
+          <Route path="/buy" element={<CreateFruit />} />
+        </Routes>
+      
+    </div>
     </div>
   )
 }
