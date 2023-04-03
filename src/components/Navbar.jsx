@@ -18,8 +18,8 @@ const Navbar = () => {
                     <h1 className='text-3xl font-bold font-signature mr-6 sm:text-6xl'>City Orchard</h1>
                     <ul className='hidden md:flex ml-16 '>
                         <Link to="/" className='p-4'>Home</Link>
-                        <Link to="/sell" className='p-4'>Sell</Link>
-                        <Link to="/buy" className='p-4'>Buy</Link>
+                        <Link to="/sell" className='p-4'>Buy</Link>
+                        <Link to="/buy" className='p-4'>Sell</Link>
                         <Link to="/about" className='p-4'>About</Link>
                         <Link to="/contacts" className='p-4'>Contacts</Link>
                     </ul>

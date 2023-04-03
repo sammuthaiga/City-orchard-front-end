@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import AddFruit from "./AddFruit";
+// import AddFruit from "./AddFruit";
 
 // import sameImg from '../assets/hero.jpg'
 
@@ -13,9 +13,9 @@ function FruitsList() {
       .then((r) => r.json())
       .then((fruits) => setFruits(fruits));
   }, []);
-  function addFruit(fruit) {
-    setFruits([...fruits, fruit]);
-  }
+  // function addFruit(fruit) {
+  //   setFruits([...fruits, fruit]);
+  // }
 
   return (
     <div name='fruits' className='w-full'>
@@ -45,7 +45,7 @@ function FruitsList() {
         </div>
       ))}
     </div>
-    <AddFruit addFruit={addFruit} />
+    {/* <AddFruit addFruit={addFruit} /> */}
 
     </div>
   );
