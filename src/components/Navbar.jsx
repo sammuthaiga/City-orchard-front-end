@@ -1,7 +1,11 @@
-
 import React, {useState} from 'react'
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
+
 import {MenuIcon, XIcon} from '@heroicons/react/outline'
 import {Link} from "react-router-dom"
+import CreateFruit from './CreateFruit';
+import FruitsList from './FruitsList';
 
 
 const Navbar = () => {
@@ -49,7 +53,9 @@ const Navbar = () => {
                                     bg-gradient-to-r from-green-300 to-blue-200 shadow-xl cursor-pointer hover:bg-transparent hover:text-green-700'>Sign-Out</button>
                 </div>
             </ul>
+            
         </div>
+
   )
 }
 
