@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 
 import {MenuIcon, XIcon} from '@heroicons/react/outline'
 import {Link} from "react-router-dom"
-import CreateFruit from './CreateFruit';
-import FruitsList from './FruitsList';
+// import CreateFruit from './CreateFruit';
+// import FruitsList from './FruitsList';
 
 
 const Navbar = () => {
@@ -19,7 +19,7 @@ const Navbar = () => {
                     <ul className='hidden md:flex ml-16 '>
                         <Link to="/" className='p-4'>Home</Link>
                         <Link to="/sell" className='p-4'>Sell</Link>
-                        <Link to="/delivery" className='p-4'>Delivery</Link>
+                        <Link to="/buy" className='p-4'>Buy</Link>
                         <Link to="/about" className='p-4'>About</Link>
                         <Link to="/contacts" className='p-4'>Contacts</Link>
                     </ul>
