@@ -10,8 +10,8 @@ const Footer = () => {
   return (
     <div className='max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300'>
         <div>
-            <h1 className='w-full text-3xl font-bold text-[#00df9a]'>PlumberFinder.</h1>
-            <p className='py-4'>Its the high time you get things fixed</p>
+            <h1 className='w-full text-3xl font-bold text-[#00df9a]'>The City Orchard.</h1>
+            <p className='py-4'>Its the high time you start making money.</p>
             <div className='flex justify-between md:w-[75%] my-6'>
                 <FaFacebookSquare size={30}/>
                 <FaInstagram size={30}/>
