@@ -40,7 +40,7 @@ export default function Signin() {
       <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 ">
         <div>
           <a href="/">
-            <h3 className="text-4xl font-bold text-green-600">Logo</h3>
+            <h3 className="text-4xl font-bold text-green-600">Create an account</h3>
           </a>
         </div>
         <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">

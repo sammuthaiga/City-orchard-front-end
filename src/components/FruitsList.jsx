@@ -19,9 +19,9 @@ function FruitsList() {
             {/* <div className='w-full h-full bg-gray-900/90 absolute'>
                <img className='w-full h-full object-cover mix-blend-overlay' src={sameImg} alt="/" />
             </div> */}
-               <h2 className='text-3xl pt-8 text-slate-300 uppercase text-center'>Support</h2>
+               <h2 className='text-3xl pt-8 text-slate-300 uppercase text-center'>Cit</h2>
                 <h3 className='text-5xl font-bold py-6 text-center'>Finding the right team</h3>
-                <p className='py-4 text-3xl text-slate-300'>Lorem ipsum dolor sit amet consectetur adipisicing elit. In repudiandae veritatis ratione error tenetur, voluptates architecto possimus ad! Omnis minima ea quidem quisquam unde beatae, minus illo et cum vel?</p>
+                <p className='py-4 text-3xl text-slate-300'>Say goodbye to long supermarket lines and hello to the freshest fruits! Our app lets you buy and sell fruits with ease, right at your fingertips. Whether you're a fruit lover or looking to sell your harvest, our app is the perfect place to connect and enjoy the taste of nature.!</p>
         </div>
 
     <div className="grid grid-cols-3 gap-4">
