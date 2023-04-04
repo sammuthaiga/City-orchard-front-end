@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Farmer1 from "../assets/farmers1.jpg"
 // import sameImg from '../assets/hero.jpg'
 
 
 function AddFruit({ addFruit }) {
+
   const [formData, setFormData] = useState({
     name: '',
     image: '',
@@ -12,6 +14,11 @@ function AddFruit({ addFruit }) {
     farmer_id: '',
     client_id: ''
   });
+
+  const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
+  // const user = sessionStorage.getItem("user_id") ? true : false;
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  console.log(user);
 
   function handleChange(event) {
     setFormData({
@@ -46,6 +53,8 @@ function AddFruit({ addFruit }) {
 
   return (
     <div >
+      {isLoggedIn ? (
+        <>
         <div className='px-32 py-12 h-92 bg-gray-900/90'>
         {/* <img className='w-full h-full object-cover mix-blend-overlay' src={sameImg} alt="/" /> */}
 
@@ -74,12 +83,12 @@ function AddFruit({ addFruit }) {
   
         <label class="block mb-2 text-black font-bold">Availability:</label>
         <input type="text" name="availability" value={formData.availability} onChange={handleChange} class="border rounded-lg px-3 py-2 mb-4 w-full" />
-  
         <label class="block mb-2 text-black font-bold">Farmer ID:</label>
         <input type="text" name="farmer_id" value={formData.farmer_id} onChange={handleChange} class="border rounded-lg px-3 py-2 mb-4 w-full" />
   
         <label class="block mb-2 text-black font-bold">Client ID:</label>
         <input type="text" name="client_id" value={formData.client_id} onChange={handleChange} class="border rounded-lg px-3 py-2 mb-4 w-full" />
+  
   
         <button type="submit" class="bg-green text-black font-bold py-2 px-4 rounded">Add Fruit</button>
       </form>
@@ -88,6 +97,22 @@ function AddFruit({ addFruit }) {
       <img src={Farmer1 } alt="your " class="w-full h-screen object-cover" />
     </div>
   </div>
+  </>
+      ) : (
+        <div className="flex items-center justify-center h-screen">
+  <div className="border-14 border-red-500 bg-white p-8 rounded-lg shadow-md w-1/2 flex flex-col items-center justify-center">
+    <p className="text-center text-red-700 font-bold">Authentication into our City Orchard app is necessary to access and purchase our freshly harvested fruits. Join us today and taste the goodness of nature.</p>
+    <div className="flex justify-between w-full mt-4">
+      <Link to="/login">
+        <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">Go to Login</button>
+      </Link>
+      <Link to="/sign-up">
+        <button className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded-full">Go to Sign-Up</button>
+      </Link>
+    </div>
+  </div>
+</div>
+      )}
   
   </div>
   

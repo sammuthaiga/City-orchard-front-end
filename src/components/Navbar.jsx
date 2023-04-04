@@ -1,61 +1,96 @@
-import React, {useState} from 'react'
-// import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+// import React, {useState} from 'react'
+// // import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 
-import {MenuIcon, XIcon} from '@heroicons/react/outline'
-import {Link} from "react-router-dom"
-// import CreateFruit from './CreateFruit';
-// import FruitsList from './FruitsList';
+// import {MenuIcon, XIcon} from '@heroicons/react/outline'
+// import {Link} from "react-router-dom"
+// // import CreateFruit from './CreateFruit';
+// // import FruitsList from './FruitsList';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlaneDeparture } from "@fortawesome/free-solid-svg-icons";
+import { AuthContext } from "../pages/AuthContext";
 
 
 const Navbar = () => {
-    const[nav , setNav]= useState(false)
-    const handleClick = () => setNav(!nav)
+    const { logout } = useContext(AuthContext);
+
+  const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
+
+  const triggerLogout = () => {
+    logout();
+  };
+
+    // const[nav , setNav]= useState(false)
+    // const handleClick = () => setNav(!nav)
   return (
-         <div className='w-screen h-[80px] z-10 bg-green-300 fixed drop-shadow-lg'>
-            <div className='px-2 flex justify-between items-center w-full h-full'>
-                <div className='flex items-center'>
-                    <h1 className='text-3xl font-bold font-signature mr-6 sm:text-6xl'>City Orchard</h1>
-                    <ul className='hidden md:flex ml-16 '>
-                        <Link to="/" className='p-4'>Home</Link>
-                        <Link to="/sell" className='p-4'>Buy</Link>
-                        <Link to="/buy" className='p-4'>Sell</Link>
-                        <Link to="/about" className='p-4'>About</Link>
-                        <Link to="/contacts" className='p-4'>Contacts</Link>
-                    </ul>
-                </div>
-                <div className='hidden md:flex pr-4'>
-                    <Link to="/sign-in">
-                    <button className='group text-black w-fit px-6 py-3 my-2 mr-4 flex items-center rounded-md bg-gradient-to-r
-                     from-cyan-500 to-blue-500 cursor-pointer hover:bg-transparent hover:text-green-500'>Sign-In</button>
-                     </Link>
-                     <Link to="/sign-up">
-                    <button className='group text-black w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-r
-                    from-cyan-500 to-blue-500 cursor-pointer hover:bg-transparent hover:text-green-900'>Sign-Up</button>
-                    </Link>
-                </div>
-                <div className='md:hidden' onClick={handleClick}>
-                    {!nav ? <MenuIcon className='w-5' /> : <XIcon className='w-5' />}
-                </div>
-            </div>
+    <div className="bg-gradient-to-r from-blue-200 via-green-400 to-green-800 flex h-12 px-6 py-2 justify-around" >
+    <div className="text-left">
+      <span className="font-bold text-black  text-xl flex-shrink-0">
+        <FontAwesomeIcon icon={faPlaneDeparture} />
+        <span className="ml-4">City Orchard</span>
+      </span>
+    </div>
+    <div className="pl-20 justify-evenly underline-offset-0
+">
+      <div className=" flex text-center  mx-9">
+        <Link
+          to="/"
+          className="px-3 py-2 rounded-md text-sm  font-bold text-black hover:bg-green-500 hover:text-white"
+        >
+          HOME
+        </Link>
+        <Link
+          to="/about"
+          className="ml-4 px-3 py-2 rounded-md text-sm font-bold text-black hover:bg-green-500 hover:text-white"
+        >
+          ABOUT
+        </Link>
 
+        {}
 
-            <ul className={!nav ? 'hidden' : 'absolute bg-green-500 w-full px-8'}>
-            <Link to="/" className='border-b-2 border-black-300 w-full font-bold'>Home</Link>
-            <Link to="/sell" className='border-b-2 border-black-300 w-full font-bold'>Buy</Link>
-               <Link to="/buy"className='border-b-2 border-black-300 w-full font-bold'>Sell</Link>
-               <Link to="/about"className='border-b-2 border-black-300 w-full font-bold'>About</Link>
-               <Link to="/contcts"className='border-b-2 border-black-300 w-full font-bold'>Contacts</Link>
-                <div className='flex flex-col my-4'>
-                <button className='group text-white w-fit px-6 py-3 my-2 mr-4 flex items-center rounded-md 
-                cursor-pointer hover:bg-transparent hover:text-green-700 '>Sign-In</button>
-                <button className='group text-white w-fit px-6 py-3 my-2 flex items-center rounded-md 
-                                    bg-gradient-to-r from-green-300 to-blue-200 shadow-xl cursor-pointer hover:bg-transparent hover:text-green-700'>Sign-Out</button>
-                </div>
-            </ul>
-            
-        </div>
+        {isLoggedIn ? (
+            <>
+             <Link
+                to="/buy"
+                className="ml-4 px-3 py-2 rounded-md text-xs font-bold text-black hover:bg-green-5300 hover:text-white"
+              >
+                Buy
+              </Link>
+             <Link
+                to="/sell"
+                className="ml-4 px-3 py-2 rounded-md text-xs font-bold text-black hover:bg-green-300 hover:text-white"
+              >
+                Sell
+              </Link>
+              {/* <Link to="/">Home</Link> */}
 
+              
+              <Link onClick={triggerLogout}>
+                <button className="ml-4 px-10 py-2 rounded-md text-sm font-bold text-black hover:bg-purple-500 hover:text-white">Logout</button>
+              </Link>
+             
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="ml-4 px-10 py-2 rounded-md text-xs font-bold text-black hover:bg-purple-500 hover:text-white"
+              >
+                Sign-In
+              </Link>
+              <Link
+                to="/sign-up"
+                className="ml-4 px-3 py-2 rounded-md text-xs font-bold text-black hover:bg-purple-500 hover:text-white"
+              >
+                SIGN-UP
+              </Link>
+            </>
+          )}
+      </div>
+    </div>
+  </div>
   )
 }
 
